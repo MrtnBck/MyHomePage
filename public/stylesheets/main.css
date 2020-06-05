@@ -1,0 +1,69 @@
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Bangers', cursive;
+    font-size: 70px;
+    color: rgb(51, 51, 0);
+}
+
+img{
+    padding: 20px;
+    transition: transform .2s; /* Animation */
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    object-fit: scale-down
+
+}
+
+iframe{
+    height: 50%;
+    width: 50%;
+}
+
+.container-fluid{
+    width: 100%;
+}
+
+.row{
+    padding: 0;
+    margin: 0px auto 0px auto;
+}
+
+.first{
+    margin-bottom: 50px;
+}
+
+.jumbotron{
+    margin-top: 10vh;
+    background: rgba(228, 225, 225, 0.5);
+    box-shadow: 10px 10px 10px  rgb(51, 51, 0)  ;
+}
+
+.box{
+    background: rgba(51, 51, 0, 0.5);
+    box-shadow: 10px 10px 10px;
+    margin: 20px 0px 20px 0px;
+}
+
+/* #hitext{
+    text-shadow: 2px 2px 1px black;
+} */
+
+#quote{
+    background: rgba(228, 225, 225, 0.5);
+}
+
+/* HOVER EFFECT: https://www.w3schools.com/howto/howto_css_zoom_hover.asp */
+
+img:hover {
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    background-color: rgba(250, 255, 185, 0.5);
+    border-radius: 25px;
+  }
