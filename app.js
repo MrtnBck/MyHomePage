@@ -8,4 +8,6 @@ app.get("/", function(req,res){
     res.render("home");
 });
 
-app.listen(process.env.PORT, process.env.IP);
+app.listen("5500", "127.0.0.1", function(){
+    console.log("The HomePageMe server has started!");
+});
