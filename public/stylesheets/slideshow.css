@@ -4,6 +4,13 @@ body{
     background-color: black;
 }
 
+
+.landing-header {
+    z-index: 1;
+    position: relative;
+    /* padding-top: 40vh; */
+  }
+
 .slideshow { 
      position: fixed;
     width: 100%;
@@ -53,12 +60,6 @@ animation-delay: 60s;
 background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
 animation-delay: 100s; 
 }
-
-.landing-header {
-    z-index: 1;
-    position: relative;
-    /* padding-top: 40vh; */
-  }
 
 @keyframes imageAnimation { 
     0% { 

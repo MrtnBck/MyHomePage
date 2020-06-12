@@ -1,3 +1,4 @@
+/* Régi böngészők miatt kell */
 *{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -27,15 +28,6 @@ iframe{
     width: 50%;
 }
 
-.container-fluid{
-    width: 100%;
-}
-
-.row{
-    padding: 0;
-    margin: 0px auto 0px auto;
-}
-
 .jumbotron{
     margin-top: 10vh;
     background: rgba(228, 225, 225, 0.5);
@@ -48,10 +40,6 @@ iframe{
     margin: 20px 0px 20px 0px;
 }
 
-#quote{
-    background: rgba(228, 225, 225, 0.5);
-}
-
 #welcome{
     font-size: 60px;
     height: 20vh;
@@ -62,9 +50,7 @@ iframe{
     justify-content: center;
 }
 
-
 /* HOVER EFFECT: https://www.w3schools.com/howto/howto_css_zoom_hover.asp */
-
 .col-2:hover {
     transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
     background-color: rgba(250, 255, 185, 0.5);
