@@ -1,0 +1,24 @@
+<%- include ("partials/header") %>
+
+<div class="container config" >
+    <h1 class="text-center">Configure your Homepage!</h1>
+    <form action="/home"  method="post">
+        <div class="row justify-content-center">
+            <label for="name">What's your name?</label>
+        </div>
+        <div class="row justify-content-center">
+            <input name="config[name]" type="text">
+        </div>
+        <div class="row justify-content-center">
+            <label for="quote">What's your favorite quote?</label>
+        </div>
+        <div class="row justify-content-center">
+            <input name="config[quote]" type="text">
+        </div>
+        <div class="row justify-content-center">
+            <button>Submit!</button>
+        </div>
+    </form>
+</div>
+
+<%- include ("partials/footer") %>

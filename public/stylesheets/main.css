@@ -9,7 +9,7 @@
 
 body{
     font-family: 'Bangers', cursive;
-    font-size: 70px;
+    /* font-size: 70px; */
     color: rgb(51, 51, 0);
 }
 
@@ -28,10 +28,15 @@ iframe{
     width: 50%;
 }
 
+.btn-lg{
+    font-size: 25px;
+    border-radius: 5px;
+    padding:10px 50px;
+}
+
 .jumbotron{
-    margin-top: 10vh;
     background: rgba(228, 225, 225, 0.5);
-    box-shadow: 10px 10px 10px  rgb(51, 51, 0)  ;
+    box-shadow: 10px 10px 10px  rgb(51, 51, 0);
 }
 
 .box{
@@ -48,6 +53,11 @@ iframe{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#trademark{
+    text-align: right;
+    margin: 0px 10px 0px 10px;
 }
 
 /* HOVER EFFECT: https://www.w3schools.com/howto/howto_css_zoom_hover.asp */

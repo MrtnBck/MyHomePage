@@ -1,0 +1,20 @@
+<%- include ("partials/header") %>
+
+<h1>Here are each setups!</h1>
+
+
+<div class="row d-flex justify-content-center">
+        <% setup.forEach(function(setup){ %>
+             <div class="row">
+                <h2>Name: <%= setup.name %></h2>
+             </div>
+             <div class="row">
+                <h3>Quote: <%= setup.quote.substring(0, 500)%></h3>
+             </div>
+             <div class="row">
+                <a href="/home/<%=setup._id%>">Go to the Homepage</a>
+             </div>  
+         <% }); %>
+</div>
+
+<%- include ("partials/footer") %>

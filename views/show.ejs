@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <link rel="stylesheet" href="/stylesheets/main.css"type="text/css">
-        <link rel="stylesheet" href="/stylesheets/slideshow.css" type="text/css">
-        <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Fredericka+the+Great&display=swap" rel="stylesheet">
-        <title>MyHomePage</title>
-    </head>
-    <body>
+<%- include ("partials/header") %>
+
         <!-- Background Transition-->
         <ul class="slideshow">
             <li></li>
@@ -20,18 +10,42 @@
             <li></li>
         </ul>
 
+
+        <!-- Menu -->
+        <div class="container-fluid">
+            <div class="row d-flex justify-content-center">
+                <div class="col-11 text-right">
+                    <div class="dropdown">
+                        <button class=" box btn btn-default btn-lg dropdown-toggle" id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Menu
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a href="/home/new" class="dropdown-item">NEW</a>    
+                            <a href="/home/<%= setup._id %>/edit" class="dropdown-item">EDIT</a>
+                            <a href="#" class="dropdown-item">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+        
+    
         <div class="container jumbotron landing-header">
             <div id="welcome" class="row box">
-                <p>Welcome on board, Martin!</p>
+                <p>Welcome on board, <%=setup.name%>!</p>
             </div>
             <div class="row d-flex justify-content-center">
                 <iframe class="box" src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=large&timezone=Europe%2FBudapest" frameborder="0" seamless></iframe>
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-11 text-center">
-                    <h3 class="box">"If you get up in the morning and think the future is going to be better, it is a bright day. Otherwise, it's not."</h3>
+                    <h3 class="box"><%=setup.quote.substring(0, 500)%></h3>
                 </div>
-            </div> 
+            </div>
+
+
+
+
             <div class="row d-flex justify-content-around">
                 <div class="col-4 text-center">
                     <h2 class="box">Working Time</h2>
@@ -46,17 +60,17 @@
             <div class="row d-flex justify-content-around"> <!--1.sor -->
                 <div class="col-2 box">
                         <a href="https://calendar.google.com/calendar/r">
-                        <img class="zoom"  src="img/calendar.png">
+                        <img class="zoom"  src="../img/calendar.png">
                     </a>
                 </div>
                 <div class="col-2 box">
                     <a href="https://www.google.com/">
-                        <img class="zoom" src="img/google.png">
+                        <img class="zoom" src="../img/google.png">
                     </a>
                 </div>
                 <div class=" col-2 box">
                     <a href="https://9gag.com/">
-                        <img class="zoom" src="img/9gag.png">
+                        <img class="zoom" src="../img/9gag.png">
                     </a>
                 </div>
             </div> 
@@ -64,7 +78,7 @@
             <div class="row d-flex justify-content-around"> <!--2.sor -->
                 <div class="col-2 box">
                         <a href="https://elearning.uni-obuda.hu/">
-                        <img class="zoom"  src="img/moodle.png">
+                        <img class="zoom"  src="../img/moodle.png">
                     </a>
                 </div>
                 <div class="col-2 box">
@@ -72,7 +86,7 @@
                 </div>
                 <div class=" col-2 box">
                     <a href="https://www.netflix.com/hu/">
-                        <img class="zoom" src="img/netflix.png">
+                        <img class="zoom" src="../img/netflix.png">
                     </a>
                 </div>
             </div> 
@@ -80,7 +94,7 @@
             <div class="row d-flex justify-content-around"> <!--3.sor -->
                 <div class="col-2 box">
                         <a href="https://neptun.uni-obuda.hu/hallgato/login.aspx">
-                        <img class="zoom"  src="img/neptun.png">
+                        <img class="zoom"  src="../img/neptun.png">
                     </a>
                 </div>
                 <div class="col-2 box">
@@ -88,7 +102,7 @@
                 </div>
                 <div class=" col-2 box">
                     <a href="https://www.reddit.com/">
-                        <img class="zoom" src="img/reddit.png">
+                        <img class="zoom" src="../img/reddit.png">
                     </a>
                 </div>
             </div> 
@@ -96,7 +110,7 @@
             <div class="row d-flex justify-content-around"> <!--4.sor -->
                 <div class="col-2 box">
                         <a href="https://mail.google.com/mail/u/0/#inbox">
-                        <img class="zoom"  src="img/gmail.png">
+                        <img class="zoom"  src="../img/gmail.png">
                     </a>
                 </div>
                 <div class="col-2 box">
@@ -104,16 +118,16 @@
                 </div>
                 <div class=" col-2 box">
                     <a href="https://ncore.cc/login.php">
-                        <img class="zoom" src="img/torrent.png">
+                        <img class="zoom" src="../img/torrent.png">
                     </a>
                 </div>
-        </div> 
-
+        </div>
+        </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    </body>
-</html>
+ 
+<%- include ("partials/footer") %>
