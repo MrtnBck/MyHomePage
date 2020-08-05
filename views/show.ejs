@@ -9,27 +9,20 @@
             <li></li>
             <li></li>
         </ul>
+        <!-- NAVBAR -->
+        <ul class="nav justify-content-end landing-header">
+          <li class="nav-item d-flex align-items-center">
+            <button class="navbtn"><a class="nav-link" href="/home/<%= setup._id %>/edit">Edit</a></button>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <button class="navbtn"><a class="nav-link" href="/logout">Logout</a></button>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <button class="navbtn"><a class="nav-link" href="#">Contact</a></button>
+          </li>
+        </ul>
 
 
-        <!-- Menu -->
-        <div class="container-fluid">
-            <div class="row d-flex justify-content-center">
-                <div class="col-11 text-right">
-                    <div class="dropdown">
-                        <button class=" box btn btn-default btn-lg dropdown-toggle" id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Menu
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a href="/home/new" class="dropdown-item">NEW</a>    
-                            <a href="/home/<%= setup._id %>/edit" class="dropdown-item">EDIT</a>
-                            <a href="#" class="dropdown-item">Contact Us</a>
-                        </div>
-                    </div>
-                </div>
-                </div>
-        </div>
-        
-    
         <div class="container jumbotron landing-header">
             <div id="welcome" class="row box">
                 <p>Welcome on board, <%=setup.name%>!</p>
@@ -57,7 +50,7 @@
                     <h2 class="box">Chill Area</h2>
                 </div>
             </div>
-            <div class="row d-flex justify-content-around"> <!--1.sor -->
+            <div class="row d-flex justify-content-around">
                 <div class="col-2 box">
                         <a href="https://calendar.google.com/calendar/r">
                         <img class="zoom"  src="../img/calendar.png">
@@ -75,7 +68,7 @@
                 </div>
             </div> 
 
-            <div class="row d-flex justify-content-around"> <!--2.sor -->
+            <div class="row d-flex justify-content-around">
                 <div class="col-2 box">
                         <a href="https://elearning.uni-obuda.hu/">
                         <img class="zoom"  src="../img/moodle.png">
@@ -91,7 +84,7 @@
                 </div>
             </div> 
 
-            <div class="row d-flex justify-content-around"> <!--3.sor -->
+            <div class="row d-flex justify-content-around">
                 <div class="col-2 box">
                         <a href="https://neptun.uni-obuda.hu/hallgato/login.aspx">
                         <img class="zoom"  src="../img/neptun.png">
@@ -107,7 +100,7 @@
                 </div>
             </div> 
 
-            <div class="row d-flex justify-content-around"> <!--4.sor -->
+            <div class="row d-flex justify-content-around">
                 <div class="col-2 box">
                         <a href="https://mail.google.com/mail/u/0/#inbox">
                         <img class="zoom"  src="../img/gmail.png">

@@ -1,22 +1,16 @@
 <%- include ("partials/header") %>
 
 <div class="container config" >
-    <h1 class="text-center">Configure your Homepage!</h1>
+    <h1 class="text-center">Home Page Configuration</h1>
     <form action="/home"  method="post">
         <div class="row justify-content-center">
-            <label for="name">What's your name?</label>
+            <input name="config[name]" type="text" placeholder="How can I call you?">
         </div>
         <div class="row justify-content-center">
-            <input name="config[name]" type="text">
+            <input name="config[quote]" type="text" placeholder="What's your favorite quote?">
         </div>
         <div class="row justify-content-center">
-            <label for="quote">What's your favorite quote?</label>
-        </div>
-        <div class="row justify-content-center">
-            <input name="config[quote]" type="text">
-        </div>
-        <div class="row justify-content-center">
-            <button>Submit!</button>
+            <button>Submit</button>
         </div>
     </form>
 </div>
