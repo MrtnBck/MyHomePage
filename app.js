@@ -7,7 +7,6 @@ var mongoose        =      require("mongoose"),
     LocalStrategy   =      require("passport-local"),
     setup           =      require("./model/setup"),
     User            =      require("./model/user")
-    /* prod            =      require("./model/productivity") */
 
 //Connect to MongoDB
 mongoose.connect("mongodb://localhost/homepage", {useNewUrlParser: true, useUnifiedTopology: true});
@@ -19,44 +18,19 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 
-
 //SEEDING THE DATABASE
-/* var newSetup = new setup({
-    name: "Martin",
-    quote: "Kis bohóc, nagy cirkusz!",
-});
 
-newSetup.prod.push({
-    prodName: "Calendar",
-    prodIcon: "Ez egy ikon",
-    prodLink: "https://calendar.google.com/calendar/r"
-});
-
-newSetup.prod.push({
-    prodName: "Reddit",
-    prodIcon: "Ez egy ikon",
-    prodLink: "https://www.reddit.com/"
-}); */
-
-/* newSetup.save(function(err, setup){
+/* User.create ({
+    username: "testuser1",
+    password: "12345",
+    thisSetup: [{name: "TestName4" ,quote: "Teszt Quote",}]
+}, function(err, User){
     if(err){
         console.log(err);
     }else{
-        console.log(setup);
+        console.log(User);
     }
 }); */
-//-----------------------------------------
-/* setup.create({
-	name: "Martin",
-	quote: "Eccpecc"
-}, function(err, setup){
-	if(err){
-		console.log(err);
-	}else{
-		console.log(setup);
-    }
-}); */
-
 
 //------------
 //RESTFUL ROUTING
@@ -80,7 +54,7 @@ app.get("/", function(req, res){
     res.render("landing");
 });
 
-//INDEX ROUTE II.
+//INDEX ROUTE
 app.get("/home", isLoggedIn, function(req,res){
     //GET all Setup from MongoDB
     setup.find({}, function(err, allSetups){
@@ -111,7 +85,8 @@ app.post("/home", isLoggedIn, function(req, res){
     });
 });
 
-//SHOW ROUTE OLD
+
+//SHOW ROUTE
 app.get("/home/:id",isLoggedIn, function(req, res){
    setup.findById(req.params.id, function(err, foundConfig){
        if(err){
@@ -166,6 +141,33 @@ app.delete("/home/:id", isLoggedIn, function(req,res){
     });
 });
 
+//USERID
+app.get("/userid", function(req, res){
+    User.find({}, function(err, foundUser){
+        if(err){
+            res.redirect("/home");
+        }else{
+            console.log(foundUser);
+            res.render("userid", {User: foundUser});
+        }
+    });
+});
+
+/* 
+User.findById("5f287b5d8cbe135ef02eeff1", function(err, foundUser){
+    if(err){
+        console.log(err);
+    }else{
+        console.log("userid: ", foundUser );
+    }
+});
+
+
+
+User.find({username: "Savage"}, function(error, res){
+    console.log(res);
+}); */
+
 //==========
 //AUTH ROUTES
 //==========
@@ -196,14 +198,14 @@ app.get("/login", function(req, res){
 
 app.post("/login", passport.authenticate("local",
     {
-        successRedirect: "/home/:id",
+        successRedirect: "/userid",
         failureRedirect: "/login",
     }), function(req,res){
 });
 
 //LOGOUT ROUTE
 app.get("/logout", function(req,res){
-    req.logout();
+    req.logout("/userid");
     res.redirect("/");
 });
 

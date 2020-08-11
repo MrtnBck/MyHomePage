@@ -7,7 +7,6 @@ var mongoose = require("mongoose");
 var setupSchema = new mongoose.Schema({
     name: String,
     quote: String,
-    /* prod: [prod],//Productivity shortcuts */
 });
 
 module.exports = mongoose.model("setup", setupSchema); //ez csinálja meg a setups collectiont. s-t odarakja a fordító a végére
