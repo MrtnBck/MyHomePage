@@ -12,7 +12,7 @@
         <!-- NAVBAR -->
         <ul class="nav justify-content-end landing-header">
           <li class="nav-item d-flex align-items-center">
-            <button class="navbtn"><a class="nav-link" href="/home/<%= setup._id %>/edit">Edit</a></button>
+            <button class="navbtn"><a class="nav-link" href="/home/<%= User._id %>/edit">Edit</a></button>
           </li>
           <li class="nav-item d-flex align-items-center">
             <button class="navbtn"><a class="nav-link" href="/logout">Logout</a></button>
@@ -22,17 +22,22 @@
           </li>
         </ul>
 
+      <div class="container landing-header">
+          <h2>I'm here with the: <%= User._id %> ID</h2>
+          <h2>My username is: <%= User.username %></h2>
+          <h2>thisSetup array datas are: <%= User.thisSetup %> </h2>
+      </div>
 
-        <div class="container jumbotron landing-header">
+       <!--  <div class="container jumbotron landing-header">
             <div id="welcome" class="row box">
-                <p>Welcome on board, <%=setup.name%>!</p>
+                <p>Welcome on board, xyz!</p>
             </div>
             <div class="row d-flex justify-content-center">
                 <iframe class="box" src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=large&timezone=Europe%2FBudapest" frameborder="0" seamless></iframe>
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-11 text-center">
-                    <h3 class="box"><%=setup.quote.substring(0, 500)%></h3>
+                    <h3 class="box"> idézet</h3>
                 </div>
             </div>
 
@@ -116,7 +121,7 @@
                 </div>
         </div>
         </div>
-
+ -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

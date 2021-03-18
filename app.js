@@ -5,6 +5,7 @@ var mongoose        =      require("mongoose"),
     bodyParser      =      require("body-parser"), //https://stackoverflow.com/questions/38306569/what-does-body-parser-do-with-express
     passport        =      require("passport"),
     LocalStrategy   =      require("passport-local"),
+    /* passportLocalMonogoose = require("passport-local-mongoose"), */
     setup           =      require("./model/setup"),
     User            =      require("./model/user")
 
@@ -54,8 +55,8 @@ app.get("/", function(req, res){
     res.render("landing");
 });
 
-//INDEX ROUTE
-app.get("/home", isLoggedIn, function(req,res){
+//INDEX ROUTE -- NOT IN USE
+/* app.get("/home", isLoggedIn, function(req,res){
     //GET all Setup from MongoDB
     setup.find({}, function(err, allSetups){
         if(err){
@@ -64,7 +65,7 @@ app.get("/home", isLoggedIn, function(req,res){
             res.render("index", {setup: allSetups}); //A home.ejs-t rendereli ki és az adatbázisból az összes beállítást oadadja a home.ejsnek
         }
     });
-});
+}); */
 
 //NEW ROUTE
 app.get("/new", isLoggedIn, function(req, res){
@@ -88,25 +89,15 @@ app.post("/home", isLoggedIn, function(req, res){
 
 //SHOW ROUTE
 app.get("/home/:id",isLoggedIn, function(req, res){
-   setup.findById(req.params.id, function(err, foundConfig){
+   User.findById(req.params.id, function(err, foundUser){
        if(err){
-           res.redirect("/home");
+           res.send("There was an error if you tried to reach user specific Homepage!");
+           console.log(err);
        }else{
-           res.render("show", {setup: foundConfig});
+           res.render("show", {User: foundUser});
        }
    });
 });
-
-//SHOW ROUTE NEW
-/* app.get("/home/:id",isLoggedIn, function(req, res){
-    User.findById(req.params.id, function(err, foundConfig){
-        if(err){
-            res.redirect("/home");
-        }else{
-            res.render("show", {User: foundConfig});
-        }
-    });
- }); */
 
 //EDIT ROUTE
 app.get("/home/:id/edit",isLoggedIn, function(req, res){
@@ -123,7 +114,7 @@ app.get("/home/:id/edit",isLoggedIn, function(req, res){
 app.put("/home/:id", isLoggedIn, function(req, res){
     setup.findByIdAndUpdate(req.params.id, req.body.config, function(err, updateConfig){ //findByIdAndUpdate(id, new data, callback)
         if(err){
-            res.redirect("/index");
+            res.send("There is an error!")
         }else{
             res.redirect("/home/" + req.params.id);
         }
@@ -141,8 +132,8 @@ app.delete("/home/:id", isLoggedIn, function(req,res){
     });
 });
 
-//USERID
-app.get("/userid", function(req, res){
+//USERID --NOT IN USE
+/* app.get("/userid", function(req, res){
     User.find({}, function(err, foundUser){
         if(err){
             res.redirect("/home");
@@ -151,7 +142,7 @@ app.get("/userid", function(req, res){
             res.render("userid", {User: foundUser});
         }
     });
-});
+}); */
 
 /* 
 User.findById("5f287b5d8cbe135ef02eeff1", function(err, foundUser){
@@ -161,9 +152,6 @@ User.findById("5f287b5d8cbe135ef02eeff1", function(err, foundUser){
         console.log("userid: ", foundUser );
     }
 });
-
-
-
 User.find({username: "Savage"}, function(error, res){
     console.log(res);
 }); */
@@ -198,14 +186,15 @@ app.get("/login", function(req, res){
 
 app.post("/login", passport.authenticate("local",
     {
-        successRedirect: "/userid",
+        successRedirect: "/home/:id",
         failureRedirect: "/login",
     }), function(req,res){
+        //Itt kell bekérnünk a username-hez tartozó Id-t
 });
 
 //LOGOUT ROUTE
 app.get("/logout", function(req,res){
-    req.logout("/userid");
+    req.logout("/landing");
     res.redirect("/");
 });
 
